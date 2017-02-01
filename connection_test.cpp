@@ -1,10 +1,13 @@
 #include "gtest/gtest.h"
-#include "http_server.hpp"
+#include "connection.hpp"
 
 using namespace std;
-class http_server_test:public ::testing::Test{
+class connection_test:public ::testing::Test{
 protected:
-	http_server myserver;
+	connection conn;
 	
 	
 };
+TEST_F(connection_test,start_test){
+	//need editing
+}
