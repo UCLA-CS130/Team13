@@ -15,14 +15,6 @@ test: compile
 	chmod a+x integration-test.py
 	./integration-test.py
 
-unittest:
-	test1
-	test2 
-	test3 
-	test4 
-	test5
-	test6
-	test7
 test1:
 	g++ -isystem ${GTEST_DIR}/include $(TEST_FILES) ${GTEST_DIR}/src/gtest_main.cc http_server_test.cpp libgtest.a $(FLAGS) -o http_server_test
 test2: 
@@ -38,6 +30,10 @@ test6:
 test7: 
 	g++ -isystem ${GTEST_DIR}/include $(TEST_FILES) ${GTEST_DIR}/src/gtest_main.cc connection_manager_test.cpp libgtest.a $(FLAGS) -o connection_manager_test
 
+unittest: 
+
+clear:
+	rm -rf http_server_test request_handler request_parser_test request_test response_test connection_test connection_manager_test
 
 gtest: $(GTEST_DIR)
 	g++ -std=c++0x -isystem ${GTEST_DIR}/include -I${GTEST_DIR} -pthread -c ${GTEST_DIR}/src/gtest-all.cc
