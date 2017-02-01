@@ -16,9 +16,31 @@ test: compile
 	./integration-test.py
 
 unittest:
-	#g++ -std=c++0x -isystem ${GTEST_DIR}/include -pthread server_main_test.cc config_parser.cc EchoHandler.cc HttpResponse.cc ${GTEST_DIR}/src/gtest_main.cc libgtest.a -o server_tests -lboost_system -lpthread
+	test1
+	test2 
+	test3 
+	test4 
+	test5
+	test6
+	test7
+test1:
 	g++ -isystem ${GTEST_DIR}/include $(TEST_FILES) ${GTEST_DIR}/src/gtest_main.cc http_server_test.cpp libgtest.a $(FLAGS) -o http_server_test
+test2: 
+	g++ -isystem ${GTEST_DIR}/include $(TEST_FILES) ${GTEST_DIR}/src/gtest_main.cc request_handler_test.cpp libgtest.a $(FLAGS) -o request_handler_test
+test3: 
+	g++ -isystem ${GTEST_DIR}/include $(TEST_FILES) ${GTEST_DIR}/src/gtest_main.cc request_parser_test.cpp libgtest.a $(FLAGS) -o request_parser_test
+test4: 
+	g++ -isystem ${GTEST_DIR}/include $(TEST_FILES) ${GTEST_DIR}/src/gtest_main.cc request_test.cpp libgtest.a $(FLAGS) -o request_test
+test5: 
+	g++ -isystem ${GTEST_DIR}/include $(TEST_FILES) ${GTEST_DIR}/src/gtest_main.cc response_test.cpp libgtest.a $(FLAGS) -o response_test
+test6: 
+	g++ -isystem ${GTEST_DIR}/include $(TEST_FILES) ${GTEST_DIR}/src/gtest_main.cc connection_test.cpp libgtest.a $(FLAGS) -o connection_test
+test7: 
+	g++ -isystem ${GTEST_DIR}/include $(TEST_FILES) ${GTEST_DIR}/src/gtest_main.cc connection_manager_test.cpp libgtest.a $(FLAGS) -o connection_manager_test
+
 
 gtest: $(GTEST_DIR)
 	g++ -std=c++0x -isystem ${GTEST_DIR}/include -I${GTEST_DIR} -pthread -c ${GTEST_DIR}/src/gtest-all.cc
 	ar -rv libgtest.a gtest-all.o
+tests:
+	gtest test1 test2

@@ -18,7 +18,7 @@ public:
     explicit connection(boost::asio::ip::tcp::socket socket, connection_manager& manager, request_handler& handler);
     void start();
     void stop();
-
+    std::array<char, 1024> buffer_;
 private:
     void read();
     void write();
@@ -30,7 +30,7 @@ private:
     request request_;
     response response_;
 
-    std::array<char, 1024> buffer_;
+    
 
 };
 

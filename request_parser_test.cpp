@@ -10,12 +10,12 @@ protected:
 };
 TEST_F(request_parser_test,parse_test){
 	request myrequest;
-	myrequest.header=    //need editing
-	myrequest.end=   //need editing
+	myrequest.header={} ;   //need editing
+	myrequest.body={} ;  //need editing
 	char* start=new char[1];
 	char* end=new char[1];
-	parse_result=parser.parse(request,start,end);
-	EXPECT_EQ(result.toString(), );//need editing
+	result_type parse_result=parser.parse(myrequest,start,end);
+	EXPECT_EQ(parse_result, 0);//need editing
 }
 
 //several more cases
