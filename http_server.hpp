@@ -16,7 +16,7 @@ public:
 private:
     void accept();
     void stop();
-
+public:
     NginxConfig config_;
     std::string port;
 
