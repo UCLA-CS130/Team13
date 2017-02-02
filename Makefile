@@ -60,4 +60,7 @@ unittest: http_server_test request_handler_test request_parser_test request_test
 clean: clean1
 	rm -rf http_server_test request_handler_test request_parser_test request_test response_test connection_test connection_manager_test
 
-test: unittest integration-test
+test:
+	make unittest -i
+	make clean
+	make integration-test
