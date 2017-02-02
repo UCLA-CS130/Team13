@@ -6,3 +6,12 @@ webserver
 *.dSYM
 nginx-configparser
 *.out
+*.o
+*.a
+connection_test
+http_server_test
+request_parser_test
+request_test
+response_test
+request_handler_test
+connection_manager_test
